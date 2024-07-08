@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ student.get_fullname() }}
+{% endblock %}
+
+
+{% block title_page %}
+    مشخصات دانشجو: {{ student.get_fullname() }}
+{% endblock %}
+
+{% block content %}
+
+<header class="mb-3">
+<a class="btn btn-primary mx-1" href="{{ url_for('update_student', stid=student.STID) }}">ویرایش</a>
+<a class="btn btn-outline-primary mx-1" href="{{ url_for('delete_student', STID=student.STID) }}">حذف</a>
+
+</header>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+            <tr>
+              <th scope="row">شماره دانشجویی</th>
+              <td>{{ student.STID }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">نام</th>
+              <td>{{ student.Fname }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">نام خانوادگی</th>
+              <td>{{ student.Lname }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">نام پدر</th>
+              <td>{{ student.Father }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">تاریخ تولد</th>
+              <td>{{ student.Birth }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">شماره شناسنامه</th>
+              <td>{{ student.IDS }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">شهر تولد</th>
+              <td>{{ student.BornCity }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">آدرس</th>
+              <td>{{ student.Address }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">کد پستی</th>
+              <td>{{ student.PostalCode }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">تلفن همراه</th>
+              <td>{{ student.CPhone }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">تلفن ثابت</th>
+              <td>{{ student.HPhone }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">دانشکده</th>
+              <td>{{ student.Department }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">رشته تحصیلی</th>
+              <td>{{ student.Major }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">تاهل</th>
+              <td>
+                  {% if student.Married %}
+                      متاهل
+                  {% else %}
+                    مجرد
+                  {% endif %}
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">کد ملی</th>
+              <td>{{ student.ID }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">لیست دروس</th>
+              <td>{{ student.Courses_ids }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">لیست اساتید</th>
+              <td>{{ student.Professor_ids }}</td>
+            </tr>
+
+
+
+  </tbody>
+</table>
+
+
+{% endblock %}

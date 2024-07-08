@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ professor.get_fullname() }}
+{% endblock %}
+
+
+{% block title_page %}
+    مشخصات استاد: {{ professor.get_fullname() }}
+{% endblock %}
+
+{% block content %}
+
+<header class="mb-3">
+<a class="btn btn-primary mx-1" href="{{ url_for('update_professor', lid=professor.LID) }}">ویرایش</a>
+<a class="btn btn-outline-primary mx-1" href="{{ url_for('delete_professor', LID=professor.LID) }}">حذف</a>
+
+</header>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+            <tr>
+              <th scope="row">شماره استاد</th>
+              <td>{{ professor.LID }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">نام</th>
+              <td>{{ professor.Fname }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">نام خانوادگی</th>
+              <td>{{ professor.Lname }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">کد ملی</th>
+              <td>{{ professor.ID }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">دانشکده</th>
+              <td>{{ professor.Department }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">رشته تحصیلی</th>
+              <td>{{ professor.Major }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">تاریخ تولد</th>
+              <td>{{ professor.Birth }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">شهر تولد</th>
+              <td>{{ professor.BornCity }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">آدرس</th>
+              <td>{{ professor.Address }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">کد پستی</th>
+              <td>{{ professor.PostalCode }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">شماره موبایل</th>
+              <td>{{ professor.CPhone }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">شماره تلفن</th>
+              <td>{{ professor.HPhone }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">کد دروس</th>
+              <td>{{ professor.Lesson_ids }}</td>
+            </tr>
+
+
+  </tbody>
+</table>
+
+
+{% endblock %}

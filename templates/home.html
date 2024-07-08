@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    خانه
+{% endblock %}
+
+
+{% block title_page %}
+    خانه
+{% endblock %}
+
+{% block content %}
+
+
+<p>
+  <a class="btn btn-primary mx-1" href="{{ url_for('read_students') }}">لیست دانشجویان</a>
+  <a class="btn btn-outline-primary mx-1" href="{{ url_for('create_student') }}">افزودن دانشجو</a>
+</p>
+<p>
+  <a class="btn btn-primary mx-1" href="{{ url_for('read_professors') }}">لیست اساتید</a>
+  <a class="btn btn-outline-primary mx-1" href="{{ url_for('create_professor') }}">افزودن استاد</a>
+</p>
+<p>
+  <a class="btn btn-primary mx-1" href="{{ url_for('read_lessons') }}">لیست دروس</a>
+  <a class="btn btn-outline-primary mx-1" href="{{ url_for('create_lesson') }}">افزودن درس</a>
+</p>
+
+
+
+{% endblock %}

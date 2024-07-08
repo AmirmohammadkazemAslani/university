@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}
+    افزودن استاد
+{% endblock %}
+
+
+{% block title_page %}
+    ثبت استاد
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+
+    <div class="mb-3">
+      <label for="lid-field" class="form-label">کد استاد</label>
+      <input type="number" name="LID" class="form-control" id="lid-field" placeholder="123456">
+    </div>
+    <div class="mb-3">
+      <label for="fname-field" class="form-label">نام</label>
+      <input class="form-control" name="Fname" id="fname-field" type="text" placeholder="امیر">
+    </div>
+    <div class="mb-3">
+      <label for="lname-field" class="form-label">نام خانوادگی</label>
+      <input class="form-control" name="Lname" id="lname-field" type="text" placeholder="اصلانی">
+    </div>
+
+    <div class="mb-3">
+      <label for="id-field" class="form-label">کد ملی</label>
+      <input class="form-control" id="id-field" name="ID" type="number" placeholder="4160000000">
+    </div>
+
+
+    <div class="mb-3">
+      <label for="department-field" class="form-label">دانشکده</label>
+      <input class="form-control" id="department-field" name="Department" type="text" placeholder="فنی و مهندسی">
+    </div>
+
+
+    <div class="mb-3">
+      <label for="major-field" class="form-label">رشته تحصیلی</label>
+      <input class="form-control" id="major-field" name="Major" type="text" placeholder="کامپیوتر">
+    </div>
+
+    <div class="mb-3">
+      <label for="born-field" class="form-label">تاریخ تولد</label>
+      <input class="form-control shamsi-date" name="Birth" id="born-field" type="text" placeholder="1384-06-09">
+    </div>
+
+
+    <div class="mb-3">
+      <label for="borncity-field" class="form-label">شهر تولد</label>
+      <input class="form-control" id="borncity-field" name="BornCity" type="text" placeholder="تهران">
+    </div>
+
+    <div class="mb-3">
+      <label for="address-field" class="form-label">آدرس</label>
+      <input class="form-control" id="address-field" name="Address" type="text" placeholder="خیابان فرشته ...">
+    </div>
+
+    <div class="mb-3">
+      <label for="postalcode-field" class="form-label">کد پستی</label>
+      <input class="form-control" id="postalcode-field" name="PostalCode" type="text" placeholder="6861456986">
+    </div>
+
+    <div class="mb-3">
+      <label for="cphone-field" class="form-label">شماره موبایل</label>
+      <input class="form-control" id="cphone-field" name="CPhone" type="text" placeholder="09012595403">
+    </div>
+
+    <div class="mb-3">
+      <label for="hphone-field" class="form-label">شماره تلفن</label>
+      <input class="form-control" id="hphone-field" name="HPhone" type="text" placeholder="06643434343">
+    </div>
+
+
+    <div class="mb-3">
+      <label for="lesson-field" class="form-label">کد دروس</label>
+      <input class="form-control" id="lesson-field" name="Lesson_ids" type="text" placeholder="56960,12345,77885">
+    </div>
+
+    <input type="submit" class="btn btn-primary w-100" value="ثبت">
+</form>
+
+
+{% endblock %}

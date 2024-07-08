@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}
+    لیست دروس
+{% endblock %}
+
+
+{% block title_page %}
+    لیست دروس
+{% endblock %}
+
+{% block content %}
+
+
+<header class="mb-3">
+<a class="btn btn-primary mx-1" href="{{ url_for('home') }}">خانه</a>
+<a class="btn btn-primary mx-1" href="{{ url_for('create_lesson') }}">افزودن درس</a>
+
+</header>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">کد درس</th>
+      <th scope="col">نام درس</th>
+      <th scope="col">دانشکده</th>
+      <th scope="col">تعداد واحد</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for lesson in lessons %}
+            <tr>
+              <th scope="row"><a href="{{ url_for('read_lesson', lesson_id=lesson.CID) }}">{{ lesson.CID }}</a></th>
+              <td>{{ lesson.CName }}</td>
+              <td>{{ lesson.Department }}</td>
+              <td>{{ lesson.Credit }}</td>
+              <td><a class="btn btn-primary mx-1" href="{{ url_for('update_lesson', cid=lesson.CID) }}">ویرایش</a></td>
+              <td><a class="btn btn-outline-primary mx-1" href="{{ url_for('delete_lesson', CID=lesson.CID) }}">حذف</a></td>
+
+            </tr>
+        {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}
+    لیست دانشجویان
+{% endblock %}
+
+
+{% block title_page %}
+    لیست دانشجویان
+{% endblock %}
+
+{% block content %}
+
+
+<header class="mb-3">
+<a class="btn btn-primary mx-1" href="{{ url_for('home') }}">خانه</a>
+<a class="btn btn-primary mx-1" href="{{ url_for('create_student') }}">افزودن دانشجو</a>
+
+</header>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">شماره دانشجویی</th>
+      <th scope="col">نام</th>
+      <th scope="col">نام خانوادگی</th>
+      <th scope="col">نام پدر</th>
+      <th scope="col">تاریخ تولد</th>
+      <th scope="col">شماره شناسنامه</th>
+      <th scope="col">شهر تولد</th>
+      <th scope="col">آدرس</th>
+      <th scope="col">کد پستی</th>
+      <th scope="col">موبایل</th>
+      <th scope="col">تلفن</th>
+      <th scope="col">دانشکده</th>
+      <th scope="col">رشته</th>
+      <th scope="col">تاهل</th>
+      <th scope="col">کد ملی</th>
+      <th scope="col">کد دروس</th>
+      <th scope="col">کد اساتید</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for student in students %}
+            <tr>
+              <th scope="row"><a href="{{ url_for('read_student', student_id=student.STID) }}">{{ student.STID }}</a></th>
+              <td>{{ student.Fname }}</td>
+              <td>{{ student.Lname }}</td>
+              <td>{{ student.Father }}</td>
+              <td>{{ student.Birth }}</td>
+              <td>{{ student.IDS }}</td>
+              <td>{{ student.BornCity }}</td>
+              <td>{{ student.Address }}</td>
+              <td>{{ student.PostalCode }}</td>
+              <td>{{ student.CPhone }}</td>
+              <td>{{ student.HPhone }}</td>
+              <td>{{ student.Department }}</td>
+              <td>{{ student.Major }}</td>
+              <td>
+                {% if student.Married %}
+                      متاهل
+                  {% else %}
+                    مجرد
+                  {% endif %}
+              </td>
+              <td>{{ student.ID }}</td>
+              <td>{{ student.Courses_ids }}</td>
+              <td>{{ student.Professor_ids }}</td>
+              <td><a class="btn btn-primary mx-1" href="{{ url_for('update_student', stid=student.STID) }}">ویرایش</a></td>
+              <td><a class="btn btn-outline-primary mx-1" href="{{ url_for('delete_student', STID=student.STID) }}">حذف</a></td>
+
+
+            </tr>
+        {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}

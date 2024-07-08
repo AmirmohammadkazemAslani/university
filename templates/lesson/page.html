@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}
+    درس - {{ lesson.CName }}
+{% endblock %}
+
+
+{% block title_page %}
+    مشخصات درس: {{ lesson.CName }}
+{% endblock %}
+
+{% block content %}
+
+<header class="mb-3">
+<a class="btn btn-primary mx-1" href="{{ url_for('update_lesson', cid=lesson.CID) }}">ویرایش</a>
+<a class="btn btn-outline-primary mx-1" href="{{ url_for('delete_lesson', CID=lesson.CID) }}">حذف</a>
+
+</header>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+            <tr>
+              <th scope="row">کد درس</th>
+              <td>{{ lesson.CID }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">نام درس</th>
+              <td>{{ lesson.CName }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">دانشکده</th>
+              <td>{{ lesson.Department }}</td>
+            </tr>
+
+            <tr>
+              <th scope="row">تعداد واحد</th>
+              <td>{{ lesson.Credit }}</td>
+            </tr>
+
+
+  </tbody>
+</table>
+
+
+{% endblock %}

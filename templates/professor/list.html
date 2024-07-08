@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+    لیست اساتید
+{% endblock %}
+
+
+{% block title_page %}
+    لیست اساتید
+{% endblock %}
+
+{% block content %}
+
+
+<header class="mb-3">
+<a class="btn btn-primary mx-1" href="{{ url_for('home') }}">خانه</a>
+<a class="btn btn-primary mx-1" href="{{ url_for('create_professor_post') }}">افزودن استاد</a>
+
+</header>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">شماره استاد</th>
+      <th scope="col">نام</th>
+      <th scope="col">نام خانوادگی</th>
+      <th scope="col">کد ملی</th>
+      <th scope="col">دانشکده</th>
+      <th scope="col">رشته تحصیلی</th>
+      <th scope="col">تاریخ تولد</th>
+      <th scope="col">شهر تولد</th>
+      <th scope="col">آدرس</th>
+      <th scope="col">کد پستی</th>
+      <th scope="col">شماره موبایل</th>
+      <th scope="col">شماره تلفن</th>
+      <th scope="col">کد دروس</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for professor in professors %}
+            <tr>
+              <th scope="row"><a href="{{ url_for('read_professor', professo_id=professor.LID) }}">{{ professor.LID }}</a></th>
+              <td>{{ professor.Fname }}</td>
+              <td>{{ professor.Lname }}</td>
+              <td>{{ professor.ID }}</td>
+              <td>{{ professor.Department }}</td>
+              <td>{{ professor.Major }}</td>
+              <td>{{ professor.Birth }}</td>
+              <td>{{ professor.BornCity }}</td>
+              <td>{{ professor.Address }}</td>
+              <td>{{ professor.PostalCode }}</td>
+              <td>{{ professor.CPhone }}</td>
+              <td>{{ professor.HPhone }}</td>
+              <td>{{ professor.Lesson_ids }}</td>
+              <td><a class="btn btn-primary mx-1" href="{{ url_for('update_professor', lid=professor.LID) }}">ویرایش</a></td>
+              <td><a class="btn btn-outline-primary mx-1" href="{{ url_for('delete_professor', LID=professor.LID) }}">حذف</a></td>
+
+
+            </tr>
+        {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}

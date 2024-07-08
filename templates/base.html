@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/bootstrap.rtl.min.css') }}">
+    {% block header_refrences %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="mb-5">{% block title_page %}{% endblock %}</h1>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
+
+
+

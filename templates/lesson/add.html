@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}
+    افزودن درس
+{% endblock %}
+
+
+{% block title_page %}
+    ثبت درس
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+
+    <div class="mb-3">
+      <label for="cid-field" class="form-label">کد درس</label>
+      <input type="number" name="CID" class="form-control" id="cid-field" placeholder="12345">
+    </div>
+    <div class="mb-3">
+      <label for="cname-field" class="form-label">نام درس</label>
+      <input class="form-control" name="CName" id="cname-field" type="text" placeholder="ریاضی عمومی">
+    </div>
+
+    <div class="mb-3">
+      <label for="department-field" class="form-label">دانشکده</label>
+      <input class="form-control" id="department-field" name="Department" type="text" placeholder="فنی و مهندسی">
+    </div>
+
+    <div class="mb-3">
+      <label for="credit-field" class="form-label">تعداد واحد</label>
+      <input class="form-control" id="credit-field" name="Credit" type="number" placeholder="3">
+    </div>
+
+    <input type="submit" class="btn btn-primary w-100" value="ثبت">
+</form>
+
+
+{% endblock %}

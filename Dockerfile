@@ -2,10 +2,12 @@ FROM python:3.10
 
 WORKDIR /var/www
 
-COPY /requirements.txt .
-RUN pip install -r requirements.txt
-COPY /project .
+COPY ./requirements.txt /var/www/requirements.txt
+RUN pip install -r /var/www/requirements.txt
+COPY ./project /var/www/project
+COPY ./static /var/www/static
+COPY ./templates /var/www/templates
 
 
-CMD ["fastapi", "run", "main.py","--port", "8000"]
+CMD ["fastapi", "run", "project.main.py","--port", "8000"]
 
